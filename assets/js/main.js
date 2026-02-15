@@ -60,8 +60,8 @@ const products = [
         id: 9,
         name: "Cement Bag 50kg",
         category: "construction",
-        price: 2300,
-        image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        price: 1720,
+        image: "assets/images/cement_bag.png"
     },
     {
         id: 10,
@@ -88,7 +88,7 @@ const products = [
 
 // DOM Content Loaded Wrapper
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Mobile Menu Toggle
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -102,14 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Products Page specific logic
     if (document.getElementById('product-grid')) {
         loadProducts();
-        
+
         // Setup Search
         const searchInput = document.getElementById('search-input');
-        if(searchInput) {
+        if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase();
-                const filtered = products.filter(p => 
-                    p.name.toLowerCase().includes(term) || 
+                const filtered = products.filter(p =>
+                    p.name.toLowerCase().includes(term) ||
                     p.category.toLowerCase().includes(term)
                 );
                 renderProducts(filtered);
@@ -187,10 +187,10 @@ function filterProducts(category) {
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('bg-orange-100', 'text-primary', 'font-bold');
         btn.classList.add('text-gray-600');
-        
-        if(btn.dataset.category === category) {
-             btn.classList.remove('text-gray-600');
-             btn.classList.add('bg-orange-100', 'text-primary', 'font-bold');
+
+        if (btn.dataset.category === category) {
+            btn.classList.remove('text-gray-600');
+            btn.classList.add('bg-orange-100', 'text-primary', 'font-bold');
         }
     });
 
@@ -205,6 +205,6 @@ function filterProducts(category) {
 // Contact function (Mock)
 function contactForProduct(productName) {
     const message = `Halo, mama Navidu Hardware eken "${productName}" ganna kamathi.`;
-    const url = `https://wa.me/94771234567?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/94759747593?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 }
