@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Navidu Hardware</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316',
+                        secondary: '#1f2937',
+                        accent: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Navbar -->
+    <nav class="bg-secondary text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center space-x-2">
+                <i class="fa-solid fa-hammer text-primary"></i>
+                <span class="tracking-wide uppercase">Navidu Hardware</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="products.html" class="hover:text-primary transition">Products</a>
+                <a href="contact.html" class="text-primary hover:text-white transition">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-700">
+            <a href="index.html" class="block px-6 py-3 hover:bg-gray-800 hover:text-primary">Home</a>
+            <a href="products.html" class="block px-6 py-3 hover:bg-gray-800 hover:text-primary">Products</a>
+            <a href="contact.html" class="block px-6 py-3 text-primary hover:bg-gray-800">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-secondary py-12 text-center text-white relative">
+        <div
+            class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1516156008625-3a9d60da4830?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
+        </div>
+        <div class="relative z-10">
+            <h1 class="text-4xl font-bold mb-2">Get In Touch</h1>
+            <p class="text-gray-400">We're here to help with your project needs</p>
+        </div>
+    </header>
+
+    <!-- Contact Content -->
+    <section class="py-16 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email"
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Subject</label>
+                        <input type="text"
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            placeholder="Inquiry about...">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea
+                            class="w-full px-4 py-3 border rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-primary"
+                            placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="button"
+                        class="w-full bg-primary hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-md">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Info & Map -->
+            <div class="space-y-8">
+                <!-- Info Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-full text-primary text-xl">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Phone</h3>
+                            <p class="text-gray-600 text-sm mt-1">+94 77 123 4567</p>
+                            <p class="text-gray-600 text-sm">+94 11 234 5678</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-full text-primary text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Email</h3>
+                            <p class="text-gray-600 text-sm mt-1">info@naviduhardware.com</p>
+                            <p class="text-gray-600 text-sm">sales@naviduhardware.com</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-full text-primary text-xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Address</h3>
+                            <p class="text-gray-600 text-sm mt-1">123 Main Street,<br>Hardware City, Sri Lanka</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-full text-primary text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Hours</h3>
+                            <p class="text-gray-600 text-sm mt-1">Mon - Fri: 8am - 6pm</p>
+                            <p class="text-gray-600 text-sm">Sat: 8am - 2pm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map (Placeholder) -->
+                <div class="bg-gray-300 w-full h-80 rounded-lg shadow-md overflow-hidden relative">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58585979208!2d79.82118599429783!3d6.921919869408436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2suk!4v1689252345678!5m2!1sen!2suk"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-gray-400 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <a href="#" class="text-2xl font-bold text-white flex items-center space-x-2 mb-4">
+                    <i class="fa-solid fa-hammer text-primary"></i>
+                    <span>Navidu Hardware</span>
+                </a>
+                <p class="text-sm leading-relaxed">Your trusted partner for all construction and home improvement needs.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+                    <li><a href="products.html" class="hover:text-primary transition">Products</a></li>
+                    <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact Info</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-primary"></i>
+                        <span>123 Main Street, Hardware City, Sri Lanka</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-primary"></i>
+                        <span>+94 77 123 4567</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+            &copy; 2024 Navidu Hardware. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

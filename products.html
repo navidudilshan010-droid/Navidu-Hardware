@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Navidu Hardware</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316',
+                        secondary: '#1f2937',
+                        accent: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Navbar (Same as Index) -->
+    <nav class="bg-secondary text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center space-x-2">
+                <i class="fa-solid fa-hammer text-primary"></i>
+                <span class="tracking-wide uppercase">Navidu Hardware</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="products.html" class="text-primary hover:text-white transition">Products</a>
+                <a href="contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-700">
+            <a href="index.html" class="block px-6 py-3 hover:bg-gray-800 hover:text-primary">Home</a>
+            <a href="products.html" class="block px-6 py-3 text-primary hover:bg-gray-800">Products</a>
+            <a href="contact.html" class="block px-6 py-3 hover:bg-gray-800 hover:text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-secondary py-12 text-center text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
+        </div>
+        <div class="relative z-10">
+            <h1 class="text-4xl font-bold mb-2">Our Products</h1>
+            <p class="text-gray-400">Find exactly what you need for your next project</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-12 container mx-auto px-6 flex flex-col md:flex-row gap-8">
+
+        <!-- Sidebar Filters -->
+        <aside class="w-full md:w-1/4 space-y-8">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="font-bold text-lg mb-4 border-b pb-2">Categories</h3>
+                <ul class="space-y-2">
+                    <li><button onclick="filterProducts('all')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn active"
+                            data-category="all">All Products</button></li>
+                    <li><button onclick="filterProducts('tools')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn"
+                            data-category="tools">Tools & Equipment</button></li>
+                    <li><button onclick="filterProducts('paints')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn"
+                            data-category="paints">Paints & Finishes</button></li>
+                    <li><button onclick="filterProducts('plumbing')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn"
+                            data-category="plumbing">Plumbing</button></li>
+                    <li><button onclick="filterProducts('electrical')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn"
+                            data-category="electrical">Electrical</button></li>
+                    <li><button onclick="filterProducts('construction')"
+                            class="w-full text-left py-2 px-4 rounded hover:bg-orange-50 hover:text-primary transition category-btn"
+                            data-category="construction">Construction Materials</button></li>
+                </ul>
+            </div>
+
+            <!-- Search -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="font-bold text-lg mb-4 border-b pb-2">Search</h3>
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Search products..."
+                        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="w-full md:w-3/4">
+            <div class="flex justify-between items-center mb-6">
+                <p class="text-gray-600">Showing all products</p>
+                <select class="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option>Sort by Popularity</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Products will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="bg-secondary text-gray-400 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <a href="#" class="text-2xl font-bold text-white flex items-center space-x-2 mb-4">
+                    <i class="fa-solid fa-hammer text-primary"></i>
+                    <span>Navidu Hardware</span>
+                </a>
+                <p class="text-sm leading-relaxed">Your trusted partner for all construction and home improvement needs.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+                    <li><a href="products.html" class="hover:text-primary transition">Products</a></li>
+                    <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact Info</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-primary"></i>
+                        <span>123 Main Street, Hardware City, Sri Lanka</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-primary"></i>
+                        <span>+94 77 123 4567</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+            &copy; 2024 Navidu Hardware. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Inline product data to ensure it works without external fetch if necessary, 
+        // but ideally we move this to main.js. for now I'll put initialization here to be safe.
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+        });
+    </script>
+</body>
+
+</html>
